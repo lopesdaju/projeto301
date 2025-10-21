@@ -1,0 +1,5 @@
+CRATE TABLE tasks (
+	id INT AUTO_INCRET PRIMARE KEY,
+	title VAR CHAR(100) NOT NULL,
+	status ENUM ('Pendente', 'Concluida') DEFAULT 'Pendente',
+	created_at DATETIME DEFAULT CURRENT_TIMESTAMP);
