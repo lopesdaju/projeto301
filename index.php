@@ -1,3 +1,5 @@
+<?php include('db_connection.php'); ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,6 +13,26 @@
     <input type = "text" name = "title" placeholder = "Nova tarefa" required>
     <button type= "submit"> Adicionar </button>
 </form>
+ <hr>
+
+ <u1>
+    <?php
+    $sql = "SELECT * FROM tasks ORDER BY id DESC";
+    $result = $conn->query($sql);
+
+    if ($result-> num_rows > 0) {
+        echo "<li>";
+        echo $row['status'] == 'concluida' ? "<s>{$row['title']}<s/>" : $row['title'];
+        echo "
+            <a href='update_task.php?id={$row['id']}'>j</a>
+            <a href='delete_task.php?id={$row['id']}'>j</a";
+        echo "</li>";
+        
+    } else {
+        echo "<p>Nenhuma tarefa cadastrada. </p>";
     
+    }
+    ?>
+   </ul>
 </body>
 </html>
